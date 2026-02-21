@@ -15,17 +15,18 @@ void solve() {
     int size=0;
     int i=0,j=n-1;
     while(i<=j){
-        if(sum_a>=sum_b){
+        if(sum_a<=sum_b){
+            sum_a+= 1LL * v[i]; 
+            i++;
+        }else{
             sum_b+= 1LL * v[j]; 
             j--;
-        }else{
-            sum_b+= 1LL * v[i]; 
-            i++;
         }
         if(sum_a==sum_b){
-            size = i + (n - 1 - j);
+            size = max(size,i + (n - 1 - j));
         }
     }
+    cout<<size<<endl;
 }
 int main() {
     ios_base::sync_with_stdio(false);
